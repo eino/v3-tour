@@ -208,7 +208,10 @@ export default {
     ionicScroll (jumpOptions) {
       const offset = this.getOffset(jumpOptions)
       document.querySelector('ion-content').scrollByPoint(0, offset, this.step.duration || 1000)
-    }
+    },
+    destroyPopup () {
+      document.body.removeChild(this.$refs['v-step-' + this.hash])
+    },
   },
   mounted () {
     this.createStep()
